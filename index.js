@@ -13,6 +13,18 @@ function hideLoading() {
     loadingBar.style.display = 'none';
 }
 
+// Listen for the server response
+socket.on("message", ({ imageSource }) => {
+    hideLoading()
+    if (imageSource) {
+        imgDisplay.setAttribute("src", imageSource)
+        console.log(`Received image source from server: ${imageSource}`);
+    } else {
+        console.log("No image source found or an error occurred.");
+        imgDisplay.setAttribute("alt", "No image source found or an error occurred.")
+    }
+});
+
 function sendUrl(e) {
     e.preventDefault();
 
@@ -24,18 +36,6 @@ function sendUrl(e) {
         showLoading()
         socket.emit("message", { url: urlValue });
         console.log(`Sent URL: ${urlValue}`);
-
-        // Listen for the server response
-        socket.on("message", async ({ imageSource }) => {
-            hideLoading()
-            if (imageSource) {
-                imgDisplay.setAttribute("src", await imageSource)
-                console.log(`Received image source from server: ${imageSource}`);
-            } else {
-                console.log("No image source found or an error occurred.");
-                imgDisplay.setAttribute("alt", "No image source found or an error occurred.")
-            }
-        });
 
         urlInput.value = "";
     } else {
