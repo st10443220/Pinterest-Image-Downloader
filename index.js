@@ -26,10 +26,10 @@ function sendUrl(e) {
         console.log(`Sent URL: ${urlValue}`);
 
         // Listen for the server response
-        socket.on("message", ({ imageSource }) => {
+        socket.on("message", async ({ imageSource }) => {
             hideLoading()
             if (imageSource) {
-                imgDisplay.setAttribute("src", imageSource)
+                imgDisplay.setAttribute("src", await imageSource)
                 console.log(`Received image source from server: ${imageSource}`);
             } else {
                 console.log("No image source found or an error occurred.");
