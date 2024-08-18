@@ -1,4 +1,4 @@
-const socket = io("http://localhost:3500");
+const socket = io("https://pinterest-image-server.onrender.com");
 
 const getImageButton = document.querySelector(".getImage");
 const urlInput = document.querySelector(".url");
