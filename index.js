@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 const socket = io("http://127.0.0.1:3500");
+=======
+const socket = io("http://pinterestimagedownloader.us-east-1.elasticbeanstalk.com/");
+>>>>>>> Stashed changes
 
 const getImageButton = document.querySelector(".getImage");
 const urlInput = document.querySelector(".url");
