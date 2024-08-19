@@ -1,4 +1,4 @@
-const socket = io("http://pinterestimagedownloader.us-east-1.elasticbeanstalk.com/");
+const socket = io("https://pinterestimagedownloader.us-east-1.elasticbeanstalk.com/");
 
 const getImageButton = document.querySelector(".getImage");
 const urlInput = document.querySelector(".url");
